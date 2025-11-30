@@ -14,7 +14,7 @@ Aplikasi manajemen keuangan pribadi berbasis mobile yang dibangun dengan **React
 
 * **Framework:** [Expo](https://expo.dev/) (Managed Workflow)  
 * **Language:** TypeScript  
-* **UI Library:** React Native Paper  
+* **UI Library:** Gluestack-UI V3  
 * **Navigation:** React Navigation (Native Stack)  
 * **Database:** Expo SQLite (Local Database)  
 * **State Management:** Zustand
