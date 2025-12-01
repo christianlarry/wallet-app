@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Alert } from 'react-native';
-import { COLORS } from '../constants/colors';
-import { MyButton } from '../components/MyButton';
+import { COLORS } from '../constants/themes';
+import { Button } from '../components/atoms/Button';
 
 export const HomeScreen = () => {
   const handlePress = () => {
@@ -18,8 +18,8 @@ export const HomeScreen = () => {
 
       <View style={styles.actionContainer}>
         <Text style={styles.sectionTitle}>Aksi Cepat</Text>
-        <MyButton title="Cek Detail Saldo" onPress={handlePress} />
-        <MyButton title="Top Up" onPress={() => Alert.alert('Info', 'Fitur Top Up segera hadir!')} />
+        <Button title="Cek Detail Saldo" onPress={handlePress} />
+        <Button title="Top Up" onPress={() => Alert.alert('Info', 'Fitur Top Up segera hadir!')} />
       </View>
     </View>
   );
