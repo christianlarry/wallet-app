@@ -8,12 +8,14 @@ type VariantType = "primary" | "secondary" | "outline";
 
 interface ButtonProps extends PressableProps{
   variant?: VariantType
-  title: string
+  title: string,
+  icon?: React.ReactNode,
   fit?:boolean
 }
 
 export const Button = ({ 
   title,
+  icon,
   variant = "primary",
   fit = false,
   style,
@@ -37,6 +39,7 @@ export const Button = ({
       ]} 
       onPress={onPress}
       >
+      {icon}
       <AppText style={textVariantStyle}>{title}</AppText>
     </Pressable>
   );
@@ -44,11 +47,14 @@ export const Button = ({
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 16,
+    height: 52,
     paddingHorizontal: 24,
     borderRadius: 24,
     alignItems: 'center',
     marginVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 4
   },
   variant_primary:{
     backgroundColor: COLORS.primary
