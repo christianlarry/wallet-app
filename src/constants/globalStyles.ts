@@ -10,6 +10,12 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: COLORS.background
   },
 
+  contentWrapper: {
+    flexDirection: "column",
+    gap: 24,
+    padding: SPACING.md
+  },
+
   // Layout helpers
   // row: { flexDirection: 'row', alignItems: 'center' },
   // center: { justifyContent: 'center', alignItems: 'center' },

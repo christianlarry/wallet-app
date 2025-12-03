@@ -20,7 +20,7 @@ const Section = ({
   heading
 }:SectionProps)=>{
   return (
-    <View style={[styles.sectionContainer, style]}>
+    <View style={[style]}>
 
       {/* Card Heading Section */}
       {heading && (
@@ -44,9 +44,6 @@ const Section = ({
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginBottom: SPACING.lg
-  },
   headingContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

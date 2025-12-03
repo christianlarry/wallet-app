@@ -16,7 +16,8 @@ export const SPACING = {
   sm: 8,
   md: 16,
   lg: 20,
-  xl: 32
+  xl: 26,
+  "2xl": 32
 }
 
 export const FONTS = {

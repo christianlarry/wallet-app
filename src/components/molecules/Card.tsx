@@ -44,8 +44,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     backgroundColor: COLORS.white,
     padding: SPACING.lg,
-    borderRadius: 16,
-    marginBottom: SPACING.md
+    borderRadius: 16
   },
   cardHeader: {
     flexDirection: 'row',

@@ -13,6 +13,7 @@ import Icon from '../components/atoms/Icon';
 import { Ionicons } from '@expo/vector-icons';
 import Section from '../components/molecules/Section';
 import DashboardHeader from '../components/organisms/sections/DashboardHeader';
+import Main from '../components/templates/Main';
 
 export const DashboardScreen = () => {
   const { accounts, totalNetWorth, loadData, transactions } = useStore();
@@ -28,7 +29,7 @@ export const DashboardScreen = () => {
 
   return (
     <SafeAreaView style={globalStyles.screenContainer} edges={['top', 'left', 'right']}>
-      <View style={styles.content}>
+      <Main>
         {/* Header */}
         <DashboardHeader />
         
@@ -109,7 +110,7 @@ export const DashboardScreen = () => {
         >
             <Text style={styles.fabText}>+</Text>
         </TouchableOpacity>
-      </View>
+      </Main>
     </SafeAreaView>
   );
 };
