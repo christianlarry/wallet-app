@@ -3,12 +3,12 @@ export const COLORS = {
   primaryForeground: '#FFFFFF',
   secondary: '#c9f158',
   secondaryForeground: '#202020',
-  muted: '#E0E0E0',
-  mutedForeground: '#707070',
+  muted: '#ebebebff',
+  mutedForeground: '#919191ff',
   background: '#F2F3F5',
   foreground: '#202020',
   white: '#FFFFFF',
-  border: 'oklch(0.922 0 0)'
+  border: '#E0E0E0'
 };
 
 export const SPACING = {
@@ -28,8 +28,8 @@ export const FONTS = {
     sg_bold: "SpaceGrotesk_700Bold"
   },
   sizes: {
-    display: 42,
-    header: 34,
+    display: 38,
+    header: 32,
     title: 26,
     subtitle: 22,
     headline: 20,

@@ -1,52 +1,65 @@
 import { Pressable, PressableProps, StyleSheet } from "react-native"
-import Icon from "./Icon"
-import { COLORS } from "../../constants/themes"
+import { COLORS, SPACING } from "../../constants/themes"
 
-interface IconButtonProps extends Pick<PressableProps, 'onPress' | 'disabled' | 'style'> {
-  icon: React.ReactNode
-  size?: number
-  color?: keyof typeof COLORS
+type VariantType = 'ghost' | 'outline'
+
+interface IconButtonProps extends Pick<PressableProps, 'onPress' | 'disabled' | 'style' | 'children'> {
+  variant?: VariantType
 }
 
 const IconButton = ({
-  icon,
-  size = 24,
-  color = "primary",
+  variant = 'ghost',
   onPress,
   disabled = false,
-  style
+  style,
+  children
 }: IconButtonProps) => {
+
+  const variantStyle = styles[`variant_${variant}`]
+
   return (
     <Pressable
       onPress={onPress}
       disabled={disabled}
       style={({ pressed }) => [
         styles.container,
-        pressed && styles.pressed,
+        variantStyle,
+        pressed && (variant === 'ghost' ? styles.pressed_ghost : styles.pressed_outline),
         disabled && styles.disabled,
         typeof style === 'function' ? style({ pressed }) : style
       ]}
     >
-      <Icon size={size} color={disabled ? "mutedForeground" : color}>
-        {icon}
-      </Icon>
+      {children}
     </Pressable>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 8,
-    borderRadius: 8,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    alignSelf: 'flex-start'
   },
-  pressed: {
+  pressed_ghost: {
+    opacity: 0.6
+  },
+  pressed_outline: {
     opacity: 0.7,
     backgroundColor: COLORS.muted
   },
   disabled: {
-    opacity: 0.5
+    opacity: 0.4
+  },
+  variant_ghost: {
+    padding: 4,
+    backgroundColor: 'transparent'
+  },
+  variant_outline: {
+    borderWidth: 1.5,
+    borderColor: COLORS.border,
+    borderRadius: 12,
+    width: 50,
+    height: 50
   }
 })
 

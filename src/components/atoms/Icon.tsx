@@ -1,45 +1,31 @@
-import { View, ViewProps, StyleSheet } from "react-native"
-import { COLORS } from "../../constants/themes"
+import { ViewProps, StyleSheet } from "react-native"
+import { COLORS, ColorType } from "../../constants/themes"
 import React from "react"
 
 interface IconProps extends Pick<ViewProps, 'style'> {
   children: React.ReactNode
   size?: number
-  color?: keyof typeof COLORS
+  color?: ColorType
 }
 
 const Icon = ({
   children,
   size = 24,
-  color,
+  color = "primary",
   style
 }: IconProps) => {
-  const iconColor = color ? COLORS[color] : undefined
+  const iconColor = COLORS[color]
 
-  return (
-    <View 
-      style={[
-        styles.container,
-        { width: size, height: size },
-        style
-      ]}
-    >
-      {React.isValidElement(children) && iconColor
-        ? React.cloneElement(children as React.ReactElement<any>, { 
-            color: iconColor,
-            size: size 
-          })
-        : children
-      }
-    </View>
-  )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center'
+  // Clone element dan pass props size dan color langsung ke icon component
+  if (React.isValidElement(children)) {
+    return React.cloneElement(children as React.ReactElement<any>, { 
+      color: iconColor,
+      size: size,
+      style: style
+    })
   }
-})
+
+  return <>{children}</>
+}
 
 export default Icon

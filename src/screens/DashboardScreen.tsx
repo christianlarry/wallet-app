@@ -8,6 +8,9 @@ import { globalStyles } from '../constants/globalStyles';
 import AppText from '../components/atoms/AppText';
 import Card from '../components/molecules/Card';
 import BalanceCard from '../components/organisms/cards/BalanceCard';
+import IconButton from '../components/atoms/IconButton';
+import Icon from '../components/atoms/Icon';
+import { Ionicons } from '@expo/vector-icons';
 
 export const DashboardScreen = () => {
   const { accounts, totalNetWorth, loadData, transactions } = useStore();
@@ -26,6 +29,12 @@ export const DashboardScreen = () => {
       <View style={styles.content}>
         {/* Header Net Worth */}
         <BalanceCard/>
+
+        <IconButton variant="outline">
+          <Icon>
+            <Ionicons name="notifications-outline"/>
+          </Icon>
+        </IconButton>
         
         <Card
           heading={{
