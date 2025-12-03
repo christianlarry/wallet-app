@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useStore } from '../store/useStore';
-import { COLORS } from '../constants/colors';
+import { COLORS } from '../constants/themes';
 import { useNavigation } from '@react-navigation/native';
 
 export const AddAccountScreen = () => {
@@ -68,9 +68,9 @@ export const AddAccountScreen = () => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { padding: 20 },
-  title: { fontSize: 24, fontWeight: 'bold', color: COLORS.text, marginBottom: 24 },
+  title: { fontSize: 24, fontWeight: 'bold', color: COLORS.primary, marginBottom: 24 },
   
-  label: { fontSize: 16, color: COLORS.gray, marginBottom: 8 },
+  label: { fontSize: 16, color: COLORS.muted, marginBottom: 8 },
   input: { 
     backgroundColor: 'white', borderRadius: 10, padding: 14, fontSize: 16,
     marginBottom: 20, borderWidth: 1, borderColor: '#eee'
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e0e0e0', marginBottom: 8
   },
   activeType: { backgroundColor: COLORS.primary },
-  typeText: { color: COLORS.text },
+  typeText: { color: COLORS.primary },
   activeTypeText: { color: 'white', fontWeight: 'bold' },
 
   saveButton: { 

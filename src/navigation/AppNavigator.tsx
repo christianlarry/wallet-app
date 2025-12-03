@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { DashboardScreen } from '../screens/DashboardScreen';
 import { AddTransactionScreen } from '../screens/AddTransactionScreen';
 import { AddAccountScreen } from '../screens/AddAccountScreen';
-import { COLORS } from '../constants/colors';
+import { COLORS } from '../constants/themes';
 
 const Stack = createNativeStackNavigator();
 

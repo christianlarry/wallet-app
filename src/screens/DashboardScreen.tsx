@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useStore } from '../store/useStore';
-import { COLORS } from '../constants/colors';
+import { COLORS } from '../constants/themes';
 import { useNavigation } from '@react-navigation/native';
+import { globalStyles } from '../constants/globalStyles';
+import AppText from '../components/atoms/AppText';
+import Card from '../components/molecules/Card';
 
 export const DashboardScreen = () => {
   const { accounts, totalNetWorth, loadData, transactions } = useStore();
@@ -14,17 +17,31 @@ export const DashboardScreen = () => {
   }, []);
 
   const formatRupiah = (num: number) => {
-    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(num);
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR'}).format(num);
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['top', 'left', 'right']}>
+    <SafeAreaView style={globalStyles.screenContainer} edges={['top', 'left', 'right']}>
       <View style={styles.content}>
         {/* Header Net Worth */}
         <View style={styles.headerCard}>
-          <Text style={styles.label}>Total Kekayaan Bersih</Text>
-          <Text style={styles.netWorth}>{formatRupiah(totalNetWorth)}</Text>
+          <AppText variant='body' color='mutedForeground'>Your balance</AppText>
+          <AppText variant='title'>{formatRupiah(totalNetWorth)}</AppText>
         </View>
+
+        <Card
+          heading={{
+            title: 'Transaksi',
+            subTitle: 'Here is your financial overview.',
+            action: { label: 'Refresh', onPress: () => loadData()}
+          }}
+        >
+          <AppText variant='body'>Stay on top of your finances with our dashboard.</AppText>
+        </Card>
+        
+        <Card>
+          <AppText variant='body'>Without Header. Stay on top of your finances with our dashboard.</AppText>
+        </Card>
 
         {/* Daftar Akun */}
         <Text style={styles.sectionTitle}>Akun Saya</Text>
@@ -90,7 +107,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { flex: 1, padding: 20 },
   headerCard: {
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.white,
     padding: 24,
     borderRadius: 16,
     marginBottom: 20,
@@ -99,7 +116,7 @@ const styles = StyleSheet.create({
   label: { color: 'rgba(255,255,255,0.8)', fontSize: 14, marginBottom: 4 },
   netWorth: { color: 'white', fontSize: 32, fontWeight: 'bold' },
   
-  sectionTitle: { fontSize: 18, fontWeight: 'bold', color: COLORS.text, marginBottom: 12, marginTop: 10 },
+  sectionTitle: { fontSize: 18, fontWeight: 'bold', color: COLORS.primary, marginBottom: 12, marginTop: 10 },
   
   accountContainer: { height: 130 },
   accountList: { flexGrow: 0, marginBottom: 20 },
@@ -124,20 +141,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderStyle: 'dashed',
     borderWidth: 1,
-    borderColor: COLORS.gray,
+    borderColor: COLORS.border,
   },
-  addAccountText: { color: COLORS.text, fontWeight: 'bold' },
+  addAccountText: { color: COLORS.primary, fontWeight: 'bold' },
 
-  accountName: { fontWeight: 'bold', fontSize: 16, color: COLORS.text },
-  accountType: { fontSize: 12, color: COLORS.gray, marginBottom: 8 },
+  accountName: { fontWeight: 'bold', fontSize: 16, color: COLORS.primary },
+  accountType: { fontSize: 12, color: COLORS.muted, marginBottom: 8 },
   accountBalance: { fontSize: 14, fontWeight: '600', color: COLORS.primary },
 
   transactionItem: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
     backgroundColor: 'white', padding: 16, borderRadius: 10, marginBottom: 8
   },
-  txNote: { fontSize: 16, color: COLORS.text },
-  txDate: { fontSize: 12, color: COLORS.gray },
+  txNote: { fontSize: 16, color: COLORS.primary },
+  txDate: { fontSize: 12, color: COLORS.muted },
   txAmount: { fontWeight: 'bold' },
 
   fab: {

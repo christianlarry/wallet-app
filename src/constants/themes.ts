@@ -1,17 +1,21 @@
 export const COLORS = {
-  primary: '#4A90E2',
-  secondary: '#F5A623',
-  background: '#F5F7FA',
+  primary: '#202020',
+  primaryForeground: '#FFFFFF',
+  secondary: '#c9f158',
+  secondaryForeground: '#202020',
+  muted: '#E0E0E0',
+  mutedForeground: '#707070',
+  background: '#F2F3F5',
+  foreground: '#202020',
   white: '#FFFFFF',
-  text: '#333333',
-  gray: '#999999',
+  border: 'oklch(0.922 0 0)'
 };
 
 export const SPACING = {
   xs: 4,
   sm: 8,
   md: 16,
-  lg: 24,
+  lg: 20,
   xl: 32
 }
 
@@ -26,10 +30,15 @@ export const FONTS = {
   sizes: {
     display: 42,
     header: 34,
-    title: 28,
+    title: 26,
     subtitle: 22,
     headline: 20,
-    body: 14,
+    body: 15,
     caption: 12
   }
 }
+
+export type ColorType = keyof typeof COLORS;
+export type SpacingType = keyof typeof SPACING;
+export type FontSizeType = keyof typeof FONTS.sizes;
+export type FontFamilyType = keyof typeof FONTS.family;

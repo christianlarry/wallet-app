@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useStore } from '../store/useStore';
-import { COLORS } from '../constants/colors';
+import { COLORS } from '../constants/themes';
 import { useNavigation } from '@react-navigation/native';
 
 export const AddTransactionScreen = () => {
@@ -77,7 +77,7 @@ export const AddTransactionScreen = () => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: 'white' },
   content: { padding: 20 },
-  label: { fontSize: 16, color: COLORS.gray, marginBottom: 8 },
+  label: { fontSize: 16, color: COLORS.muted, marginBottom: 8 },
   input: { 
     fontSize: 24, borderBottomWidth: 1, borderBottomColor: '#ddd', 
     paddingVertical: 8, marginBottom: 24, fontWeight: 'bold'
@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
   },
   activeExpense: { backgroundColor: '#ffebee' }, // Merah muda
   activeIncome: { backgroundColor: '#e8f5e9' }, // Hijau muda
-  typeText: { fontWeight: '600', color: COLORS.gray },
-  activeText: { color: COLORS.text },
+  typeText: { fontWeight: '600', color: COLORS.muted },
+  activeText: { color: COLORS.primary },
   
   saveButton: { 
     backgroundColor: COLORS.primary, padding: 16, borderRadius: 12, alignItems: 'center' 

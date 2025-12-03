@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontSize: 14,
-    color: COLORS.gray,
+    color: COLORS.muted,
     marginBottom: 8,
   },
   balanceLabel: {
     fontSize: 16,
-    color: COLORS.text,
+    color: COLORS.primary,
     marginBottom: 4,
   },
   balanceValue: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: COLORS.text,
+    color: COLORS.primary,
     marginBottom: 15,
   },
 });
