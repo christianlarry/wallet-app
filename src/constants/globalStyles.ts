@@ -25,4 +25,9 @@ export const globalStyles = StyleSheet.create({
   fullWidth: { alignSelf: 'stretch', width: '100%' }, // stretch ke lebar parent
   inline: { alignSelf: 'flex-start' },                // mengikuti ukuran konten
   noFlex: { flexGrow: 0, flexShrink: 0, flexBasis: 'auto' }, // pastikan tidak mengembang/menyusut
+
+  // Utility untuk container yang ingin menembus padding parent (untuk horizontal scroll edge-to-edge)
+  fullWidthBleed: {
+    marginHorizontal: -SPACING.lg, 
+  },
 })

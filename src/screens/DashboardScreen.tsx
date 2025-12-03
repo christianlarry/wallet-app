@@ -14,6 +14,7 @@ import { Ionicons } from '@expo/vector-icons';
 import Section from '../components/molecules/Section';
 import DashboardHeader from '../components/organisms/sections/DashboardHeader';
 import Main from '../components/templates/Main';
+import AccountList from '../components/organisms/sections/AccountList';
 
 export const DashboardScreen = () => {
   const { accounts, totalNetWorth, loadData, transactions } = useStore();
@@ -36,11 +37,8 @@ export const DashboardScreen = () => {
         {/* Header Net Worth */}
         <BalanceCard/>
 
-        <IconButton variant="outline">
-          <Icon>
-            <Ionicons name="notifications-outline"/>
-          </Icon>
-        </IconButton>
+        {/* Section Akun Kamu */}
+        <AccountList/>
         
         <Card
           heading={{

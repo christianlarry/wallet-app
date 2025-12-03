@@ -3,7 +3,7 @@ import { COLORS, ColorType, FONTS } from "../../constants/themes"
 
 export type VariantType = keyof typeof TextVariants 
 
-interface AppTextProps extends Pick<TextProps, 'style' | 'children'> {
+interface AppTextProps extends Pick<TextProps, 'style' | 'children' | 'numberOfLines' | 'adjustsFontSizeToFit'> {
   variant?: VariantType
   color?: ColorType
 }
@@ -12,7 +12,9 @@ const AppText = ({
   children,
   style,
   variant = "default",
-  color
+  color,
+  numberOfLines,
+  adjustsFontSizeToFit
 }: AppTextProps) => {
 
   const variantStyle = TextVariants[variant];
@@ -26,6 +28,8 @@ const AppText = ({
         colorStyle,
         style
       ]}
+      numberOfLines={numberOfLines}
+      adjustsFontSizeToFit={adjustsFontSizeToFit}
     >
       {children}
     </Text>
