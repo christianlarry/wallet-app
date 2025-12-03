@@ -41,56 +41,56 @@ const styles = StyleSheet.create({
   variant_display: {
     fontFamily: FONTS.family.sg_bold,
     fontSize: FONTS.sizes.display,
-    lineHeight: FONTS.sizes.display * 1, // 100% dari fontSize
+    lineHeight: FONTS.sizes.display * 1.1, // 100% dari fontSize
     includeFontPadding: false, // Android only - hilangkan padding ekstra
     color: COLORS.primary
   },
   variant_header: {
     fontFamily: FONTS.family.sg_bold,
     fontSize: FONTS.sizes.header,
-    lineHeight: FONTS.sizes.header * 1,
+    lineHeight: FONTS.sizes.header * 1.1,
     includeFontPadding: false,
     color: COLORS.primary
   },
   variant_title: {
     fontFamily: FONTS.family.sg_bold,
     fontSize: FONTS.sizes.title,
-    lineHeight: FONTS.sizes.title * 1,
+    lineHeight: FONTS.sizes.title * 1.1,
     includeFontPadding: false,
     color: COLORS.primary
   },
   variant_subtitle: {
     fontFamily: FONTS.family.sg_bold,
     fontSize: FONTS.sizes.subtitle,
-    lineHeight: FONTS.sizes.subtitle * 1,
+    lineHeight: FONTS.sizes.subtitle * 1.1,
     includeFontPadding: false,
     color: COLORS.primary
   },
   variant_headline: {
     fontFamily: FONTS.family.sg_bold,
     fontSize: FONTS.sizes.headline,
-    lineHeight: FONTS.sizes.headline * 1,
+    lineHeight: FONTS.sizes.headline * 1.1,
     includeFontPadding: false,
     color: COLORS.primary
   },
   variant_body: {
     fontFamily: FONTS.family.sg_medium,
     fontSize: FONTS.sizes.body,
-    lineHeight: FONTS.sizes.body * 1,
+    lineHeight: FONTS.sizes.body * 1.1,
     includeFontPadding: false,
     color: COLORS.primary
   },
   variant_caption: {
     fontFamily: FONTS.family.sg_medium,
     fontSize: FONTS.sizes.caption,
-    lineHeight: FONTS.sizes.caption * 1,
+    lineHeight: FONTS.sizes.caption * 1.1,
     includeFontPadding: false,
     color: COLORS.mutedForeground
   },
   variant_default: {
     fontFamily: FONTS.family.sg_medium,
     fontSize: FONTS.sizes.body,
-    lineHeight: FONTS.sizes.body * 1,
+    lineHeight: FONTS.sizes.body * 1.1,
     includeFontPadding: false,
     color: COLORS.primary
   }

@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { globalStyles } from '../constants/globalStyles';
 import AppText from '../components/atoms/AppText';
 import Card from '../components/molecules/Card';
+import BalanceCard from '../components/organisms/cards/BalanceCard';
 
 export const DashboardScreen = () => {
   const { accounts, totalNetWorth, loadData, transactions } = useStore();
@@ -24,16 +25,12 @@ export const DashboardScreen = () => {
     <SafeAreaView style={globalStyles.screenContainer} edges={['top', 'left', 'right']}>
       <View style={styles.content}>
         {/* Header Net Worth */}
-        <View style={styles.headerCard}>
-          <AppText variant='body' color='mutedForeground'>Your balance</AppText>
-          <AppText variant='title'>{formatRupiah(totalNetWorth)}</AppText>
-        </View>
-
+        <BalanceCard/>
+        
         <Card
           heading={{
             title: 'Transaksi',
-            subTitle: 'Here is your financial overview.',
-            action: { label: 'Refresh', onPress: () => loadData()}
+            action: { label: 'Semua', onPress: () => console.log('Go to history')}
           }}
         >
           <AppText variant='body'>Stay on top of your finances with our dashboard.</AppText>

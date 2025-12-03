@@ -6,7 +6,6 @@ import TextButton from "../atoms/TextButton"
 interface CardProps extends Pick<ViewProps, "style" | "children"> {
   heading?:{
     title: string
-    subTitle?: string
     action?:{
       label: string
       onPress: () => void
@@ -26,15 +25,16 @@ const Card = ({
           <AppText variant="subtitle">{heading.title}</AppText>
 
           {heading.action &&
-            <TextButton label="More"/>
+            <TextButton 
+              label={heading.action.label}  
+              onPress={heading.action.onPress}
+            />
           }
         </View>
       }
       
       {/* Card Content Section */}
-      <View>
-        {children}
-      </View>
+      {children}
 
     </View>
   )
@@ -50,11 +50,8 @@ const styles = StyleSheet.create({
   cardHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
+    alignItems: 'baseline',
     marginBottom: SPACING.md
-  },
-  cardContent: {
-    
   }
 })
 
