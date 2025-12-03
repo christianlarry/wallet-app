@@ -11,6 +11,8 @@ import BalanceCard from '../components/organisms/cards/BalanceCard';
 import IconButton from '../components/atoms/IconButton';
 import Icon from '../components/atoms/Icon';
 import { Ionicons } from '@expo/vector-icons';
+import Section from '../components/molecules/Section';
+import DashboardHeader from '../components/organisms/sections/DashboardHeader';
 
 export const DashboardScreen = () => {
   const { accounts, totalNetWorth, loadData, transactions } = useStore();
@@ -27,6 +29,9 @@ export const DashboardScreen = () => {
   return (
     <SafeAreaView style={globalStyles.screenContainer} edges={['top', 'left', 'right']}>
       <View style={styles.content}>
+        {/* Header */}
+        <DashboardHeader />
+        
         {/* Header Net Worth */}
         <BalanceCard/>
 
@@ -67,9 +72,9 @@ export const DashboardScreen = () => {
             )}
             renderItem={({ item }) => (
                 <View style={styles.accountCard}>
-                <Text style={styles.accountName}>{item.name}</Text>
-                <Text style={styles.accountType}>{item.type}</Text>
-                <Text style={styles.accountBalance}>{formatRupiah(item.balance)}</Text>
+                  <Text style={styles.accountName}>{item.name}</Text>
+                  <Text style={styles.accountType}>{item.type}</Text>
+                  <Text style={styles.accountBalance}>{formatRupiah(item.balance)}</Text>
                 </View>
             )}
             style={styles.accountList}
