@@ -1,9 +1,14 @@
 export type TransactionType = 'INCOME' | 'EXPENSE' | 'TRANSFER';
 
+/**
+ * Account Types
+ */
+export type AccountType = 'Cash' | 'Bank' | 'E-Wallet' | 'Credit Card' | 'Investment' | 'Savings' | 'Other';
+
 export interface Account {
   id: number;
   name: string;
-  type: string; // e.g., 'Cash', 'Bank', 'E-Wallet'
+  type: AccountType; // e.g., 'Cash', 'Bank', 'E-Wallet'
   balance: number;
 }
 

@@ -30,7 +30,7 @@ const AddAccountCard = ({ onPress }: AddAccountCardProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 120,
+    width: 200,
     height: 120,
     borderRadius: 16,
     padding: SPACING.md,

@@ -1,8 +1,10 @@
+import { AccountType } from "../types";
+
 /**
  * Account type icon mapping
  * Maps account types to Ionicons icon names
  */
-export const ACCOUNT_TYPE_ICONS: Record<string, string> = {
+export const ACCOUNT_TYPE_ICONS: Record<AccountType, string> = {
   'Cash': 'cash-outline',
   'Bank': 'business-outline', 
   'E-Wallet': 'wallet-outline',
@@ -15,7 +17,7 @@ export const ACCOUNT_TYPE_ICONS: Record<string, string> = {
 /**
  * Account type colors for visual distinction
  */
-export const ACCOUNT_TYPE_COLORS: Record<string, { bg: string; accent: string }> = {
+export const ACCOUNT_TYPE_COLORS: Record<AccountType, { bg: string; accent: string }> = {
   'Cash': { bg: '#E8F5E9', accent: '#4CAF50' },
   'Bank': { bg: '#E3F2FD', accent: '#2196F3' },
   'E-Wallet': { bg: '#FFF3E0', accent: '#FF9800' },
@@ -28,13 +30,13 @@ export const ACCOUNT_TYPE_COLORS: Record<string, { bg: string; accent: string }>
 /**
  * Get icon name for account type
  */
-export const getAccountTypeIcon = (type: string): string => {
+export const getAccountTypeIcon = (type: AccountType): string => {
   return ACCOUNT_TYPE_ICONS[type] || ACCOUNT_TYPE_ICONS['Other']
 }
 
 /**
  * Get colors for account type
  */
-export const getAccountTypeColors = (type: string) => {
+export const getAccountTypeColors = (type: AccountType) => {
   return ACCOUNT_TYPE_COLORS[type] || ACCOUNT_TYPE_COLORS['Other']
 }

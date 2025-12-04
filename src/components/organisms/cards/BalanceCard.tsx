@@ -13,14 +13,8 @@ import { useNavigation } from "@react-navigation/native"
 
 const BalanceCard = () => {
 
-  const {totalNetWorth} = useStore()
+  const {totalNetWorth, isBalanceVisible, toggleBalanceVisibility} = useStore()
   const navigation = useNavigation<any>()
-  
-  const [isVisible,setIsVisible] = useState<boolean>(false)
-
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible)
-  }
 
   const handleAddTransactionBtnPress = ()=>{
     navigation.navigate("AddTransaction")
@@ -30,16 +24,16 @@ const BalanceCard = () => {
     <Card>
 
       <View style={styles.contentWrapper}>
-        <AppText variant='body' color='mutedForeground'>Your balance</AppText>
+        <AppText variant='body' color='mutedForeground' adjustsFontSizeToFit>Your balance</AppText>
         
-        <Pressable style={styles.balanceWrapper} onPress={()=>toggleVisibility()}>
+        <Pressable style={styles.balanceWrapper} onPress={()=>toggleBalanceVisibility()}>
           <AppText variant='header' style={styles.balanceText}>
-            {isVisible ? formatRupiah(totalNetWorth) : '••••••••'}
+            {isBalanceVisible ? formatRupiah(totalNetWorth) : '••••••••'}
           </AppText>
           
-          <IconButton variant="ghost" onPress={() => toggleVisibility()}>
+          <IconButton variant="ghost" onPress={() => toggleBalanceVisibility()}>
             <Icon>
-              <Ionicons name={isVisible ? "eye-off-outline" : "eye-outline"}/>
+              <Ionicons name={isBalanceVisible ? "eye-off-outline" : "eye-outline"}/>
             </Icon>
           </IconButton>
         </Pressable>

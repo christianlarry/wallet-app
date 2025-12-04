@@ -9,9 +9,10 @@ import { Ionicons } from "@expo/vector-icons"
 
 interface AccountCardProps extends Pick<PressableProps, 'onPress'> {
   account: Account
+  balanceVisible?: boolean
 }
 
-const AccountCard = ({ account, onPress }: AccountCardProps) => {
+const AccountCard = ({ account, balanceVisible = true, onPress }: AccountCardProps) => {
   const { name, type, balance } = account
   const typeColors = getAccountTypeColors(type)
   const typeIcon = getAccountTypeIcon(type)
@@ -25,27 +26,29 @@ const AccountCard = ({ account, onPress }: AccountCardProps) => {
       ]}
       onPress={onPress}
     >
-      {/* Icon Badge */}
-      <View style={[styles.iconBadge, { backgroundColor: typeColors.accent }]}>
-        <Icon size={18} color="white">
-          <Ionicons name={typeIcon as any} />
-        </Icon>
-      </View>
+      <View style={styles.cardHeader}>
+        {/* Account Info */}
+        <View style={styles.infoContainer}>
+          <AppText variant="body" style={styles.accountName} numberOfLines={1}>
+            {name}
+          </AppText>
+          <AppText variant="caption" color="mutedForeground">
+            {type}
+          </AppText>
+        </View>
 
-      {/* Account Info */}
-      <View style={styles.infoContainer}>
-        <AppText variant="body" style={styles.accountName} numberOfLines={1}>
-          {name}
-        </AppText>
-        <AppText variant="caption" color="mutedForeground">
-          {type}
-        </AppText>
+        {/* Icon Badge */}
+        <View style={[styles.iconBadge, { backgroundColor: typeColors.accent }]}>
+          <Icon size={18} color="white">
+            <Ionicons name={typeIcon as any} />
+          </Icon>
+        </View>
       </View>
 
       {/* Balance */}
       <View style={styles.balanceContainer}>
         <AppText variant="headline" style={styles.balanceText} numberOfLines={1} adjustsFontSizeToFit>
-          {formatRupiah(balance)}
+          {balanceVisible ? formatRupiah(balance) : '••••••••'}
         </AppText>
       </View>
     </Pressable>
@@ -54,11 +57,11 @@ const AccountCard = ({ account, onPress }: AccountCardProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 160,
+    width: 200,
     height: 120,
     borderRadius: 16,
     padding: SPACING.md,
-    marginRight: SPACING.sm,
+    marginRight: SPACING.md,
     justifyContent: 'space-between',
     // Shadow
     shadowColor: '#000',
@@ -90,6 +93,11 @@ const styles = StyleSheet.create({
   balanceText: {
     fontFamily: FONTS.family.sg_bold,
     color: COLORS.primary
+  },
+  cardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: SPACING.md
   }
 })
 

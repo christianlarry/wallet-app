@@ -7,8 +7,10 @@ interface AppState {
   transactions: Transaction[];
   categories: Category[];
   totalNetWorth: number;
+  isBalanceVisible: boolean;
   
   // Actions
+  toggleBalanceVisibility: () => void;
   loadData: () => void;
   addTransaction: (tx: Omit<Transaction, 'id'>) => void;
   addAccount: (name: string, type: string, initialBalance: number) => void;
@@ -19,6 +21,11 @@ export const useStore = create<AppState>((set, get) => ({
   transactions: [],
   categories: [],
   totalNetWorth: 0,
+  isBalanceVisible: false,
+
+  toggleBalanceVisibility: () => {
+    set((state) => ({ isBalanceVisible: !state.isBalanceVisible }));
+  },
 
   loadData: () => {
     try {

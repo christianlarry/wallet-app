@@ -11,7 +11,7 @@ import { Account } from "../../../types"
 const AccountList = () => {
 
   const navigation = useNavigation<any>()
-  const { accounts } = useStore()
+  const { accounts, isBalanceVisible } = useStore()
 
   const handleCreateNewAccount = () => {
     navigation.navigate("AddAccount")
@@ -27,7 +27,7 @@ const AccountList = () => {
       heading={{
         title: "Uang Kamu",
         action: {
-          label: "Lihat Semua",
+          label: "+ Tambah Akun",
           onPress: handleCreateNewAccount
         }
       }}
@@ -47,6 +47,7 @@ const AccountList = () => {
             <AccountCard 
               account={item} 
               onPress={() => handleAccountPress(item)}
+              balanceVisible={isBalanceVisible}
             />
           )}
           style={styles.accountList}
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   },
   listContent: {
     paddingHorizontal: SPACING.lg,
-    paddingVertical: SPACING.sm // Memberi ruang untuk shadow
+    paddingVertical: SPACING.sm, // Memberi ruang untuk shadow
   }
 })
 
