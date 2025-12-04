@@ -8,7 +8,10 @@ export const COLORS = {
   background: '#F2F3F5',
   foreground: '#202020',
   white: '#FFFFFF',
-  border: '#E0E0E0'
+  border: '#E0E0E0',
+
+  success: '#4CAF50',
+  error: '#F44336'
 };
 
 export const SPACING = {

@@ -5,16 +5,11 @@ import { useStore } from '../store/useStore';
 import { COLORS } from '../constants/themes';
 import { useNavigation } from '@react-navigation/native';
 import { globalStyles } from '../constants/globalStyles';
-import AppText from '../components/atoms/AppText';
-import Card from '../components/molecules/Card';
 import BalanceCard from '../components/organisms/cards/BalanceCard';
-import IconButton from '../components/atoms/IconButton';
-import Icon from '../components/atoms/Icon';
-import { Ionicons } from '@expo/vector-icons';
-import Section from '../components/molecules/Section';
-import DashboardHeader from '../components/organisms/sections/DashboardHeader';
+import DashboardHeader from '../components/organisms/sections/dashboard/DashboardHeader';
 import Main from '../components/templates/Main';
-import AccountList from '../components/organisms/sections/AccountList';
+import AccountList from '../components/organisms/sections/dashboard/AccountList';
+import TransactionHistory from '../components/organisms/sections/dashboard/TransactionHistory';
 
 export const DashboardScreen = () => {
   const { accounts, totalNetWorth, loadData, transactions } = useStore();
@@ -37,48 +32,11 @@ export const DashboardScreen = () => {
         {/* Header Net Worth */}
         <BalanceCard/>
 
-        {/* Section Akun Kamu */}
+        {/* Section Daftar Akun Kamu */}
         <AccountList/>
-        
-        <Card
-          heading={{
-            title: 'Transaksi',
-            action: { label: 'Semua', onPress: () => console.log('Go to history')}
-          }}
-        >
-          <AppText variant='body'>Stay on top of your finances with our dashboard.</AppText>
-        </Card>
-        
-        <Card>
-          <AppText variant='body'>Without Header. Stay on top of your finances with our dashboard.</AppText>
-        </Card>
 
-        {/* Daftar Akun */}
-        <Text style={styles.sectionTitle}>Akun Saya</Text>
-        <View style={styles.accountContainer}>
-            <FlatList
-            data={accounts}
-            keyExtractor={(item) => item.id.toString()}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            ListFooterComponent={() => (
-                <TouchableOpacity 
-                style={styles.addAccountCard}
-                onPress={() => navigation.navigate('AddAccount')}
-                >
-                <Text style={styles.addAccountText}>+ Akun</Text>
-                </TouchableOpacity>
-            )}
-            renderItem={({ item }) => (
-                <View style={styles.accountCard}>
-                  <Text style={styles.accountName}>{item.name}</Text>
-                  <Text style={styles.accountType}>{item.type}</Text>
-                  <Text style={styles.accountBalance}>{formatRupiah(item.balance)}</Text>
-                </View>
-            )}
-            style={styles.accountList}
-            />
-        </View>
+        {/* Section Riwayat Transaksi */}
+        <TransactionHistory/>
 
         {/* History Singkat */}
         <Text style={styles.sectionTitle}>Transaksi Terakhir</Text>

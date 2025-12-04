@@ -11,7 +11,7 @@ export const globalStyles = StyleSheet.create({
   },
 
   contentWrapper: {
-    flexDirection: "column",
+    flex: 1,
     gap: 24,
     padding: SPACING.md
   },

@@ -1,12 +1,12 @@
 import { Pressable, StyleSheet, View } from "react-native"
-import { getGreetingWithSubtext } from "../../../utils/greetings"
-import AppText from "../../atoms/AppText"
-import Section from "../../molecules/Section"
+import { getGreetingWithSubtext } from "../../../../utils/greetings"
+import AppText from "../../../atoms/AppText"
+import Section from "../../../molecules/Section"
 import { useState } from "react"
-import IconButton from "../../atoms/IconButton"
-import Icon from "../../atoms/Icon"
+import IconButton from "../../../atoms/IconButton"
+import Icon from "../../../atoms/Icon"
 import { Ionicons } from "@expo/vector-icons"
-import { SPACING } from "../../../constants/themes"
+import { SPACING } from "../../../../constants/themes"
 
 const DashboardHeader = ()=>{
   

@@ -1,12 +1,13 @@
-import { FlatList, StyleSheet, View } from "react-native"
-import Section from "../../molecules/Section"
+import { StyleSheet, View } from "react-native"
+import Section from "../../../molecules/Section"
 import { useNavigation } from "@react-navigation/native"
-import { useStore } from "../../../store/useStore"
-import { globalStyles } from "../../../constants/globalStyles"
-import { SPACING } from "../../../constants/themes"
-import AccountCard from "../cards/AccountCard"
-import AddAccountCard from "../cards/AddAccountCard"
-import { Account } from "../../../types"
+import { useStore } from "../../../../store/useStore"
+import { globalStyles } from "../../../../constants/globalStyles"
+import { SPACING } from "../../../../constants/themes"
+import AccountCard from "../../cards/AccountCard"
+import AddAccountCard from "../../cards/AddAccountCard"
+import { Account } from "../../../../types"
+import { FlashList } from "@shopify/flash-list"
 
 const AccountList = () => {
 
@@ -34,7 +35,7 @@ const AccountList = () => {
     >
 
       <View style={globalStyles.fullWidthBleed}>
-        <FlatList
+        <FlashList
           data={accounts}
           keyExtractor={(item) => item.id.toString()}
           horizontal

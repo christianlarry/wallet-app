@@ -4,8 +4,7 @@ import { getAccountTypeIcon, getAccountTypeColors } from "../../../constants/acc
 import { formatRupiah } from "../../../utils/currencyFormatter"
 import { Account } from "../../../types"
 import AppText from "../../atoms/AppText"
-import Icon from "../../atoms/Icon"
-import { Ionicons } from "@expo/vector-icons"
+import AccountBadge from "../badges/AccountBadge"
 
 interface AccountCardProps extends Pick<PressableProps, 'onPress'> {
   account: Account
@@ -38,11 +37,10 @@ const AccountCard = ({ account, balanceVisible = true, onPress }: AccountCardPro
         </View>
 
         {/* Icon Badge */}
-        <View style={[styles.iconBadge, { backgroundColor: typeColors.accent }]}>
-          <Icon size={18} color="white">
-            <Ionicons name={typeIcon as any} />
-          </Icon>
-        </View>
+        <AccountBadge
+          type={typeIcon}
+          colors={typeColors.accent}
+        />
       </View>
 
       {/* Balance */}
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
     marginRight: SPACING.md,
     justifyContent: 'space-between',
     // Shadow
-    shadowColor: '#000',
+    shadowColor: '#535353ff',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.08,
     shadowRadius: 8,
@@ -73,13 +71,6 @@ const styles = StyleSheet.create({
   pressed: {
     opacity: 0.85,
     transform: [{ scale: 0.98 }]
-  },
-  iconBadge: {
-    width: 32,
-    height: 32,
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   infoContainer: {
     gap: 2
