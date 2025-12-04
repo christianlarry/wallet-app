@@ -10,6 +10,13 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: COLORS.background
   },
 
+  scrollContainer: {
+    gap: 24,
+    padding: SPACING.md,
+    paddingBottom: SPACING.md,
+    paddingTop: SPACING.sm
+  },
+
   contentWrapper: {
     flex: 1,
     gap: 24,
@@ -28,6 +35,6 @@ export const globalStyles = StyleSheet.create({
 
   // Utility untuk container yang ingin menembus padding parent (untuk horizontal scroll edge-to-edge)
   fullWidthBleed: {
-    marginHorizontal: -SPACING.lg, 
+    marginHorizontal: -SPACING.lg,
   },
 })

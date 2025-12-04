@@ -15,10 +15,11 @@ interface CardProps extends Pick<ViewProps, "style" | "children"> {
 
 const Card = ({
   children,
-  heading
+  heading,
+  style
 }:CardProps) => {
   return (
-    <View style={styles.cardContainer}>
+    <View style={[styles.cardContainer, style]}>
       {/* Card Heading Section */}
       {heading &&
         <View style={styles.cardHeader}>

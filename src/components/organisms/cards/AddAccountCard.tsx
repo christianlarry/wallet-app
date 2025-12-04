@@ -22,7 +22,7 @@ const AddAccountCard = ({ onPress }: AddAccountCardProps) => {
 
       {/* Label */}
       <AppText variant="body" color="mutedForeground" style={styles.label}>
-        Tambah Akun
+        Add Account
       </AppText>
     </Pressable>
   )

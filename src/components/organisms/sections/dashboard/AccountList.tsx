@@ -26,9 +26,9 @@ const AccountList = () => {
   return (
     <Section
       heading={{
-        title: "Uang Kamu",
+        title: "Your Accounts",
         action: {
-          label: "+ Tambah Akun",
+          label: "+ Add Account",
           onPress: handleCreateNewAccount
         }
       }}

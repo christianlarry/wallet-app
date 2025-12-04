@@ -9,8 +9,8 @@ const TransactionHistory = () => {
   return (
     <Card
       heading={{
-        title: 'Transaksi Terakhir',
-        action: { label: 'Semua', onPress: () => console.log('Go to history') }
+        title: 'Last Transactions',
+        action: { label: 'See All', onPress: () => console.log('Go to history') }
       }}
     >
       <TransactionHistoryLists transactions={transactions.slice(0,5) } />

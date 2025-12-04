@@ -12,6 +12,7 @@ const TransactionHistoryLists = ({
 }: TransactionHistoryListsProps) => {
   return (
     <FlatList
+      scrollEnabled={false}
       data={transactions}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item, index }) => (
