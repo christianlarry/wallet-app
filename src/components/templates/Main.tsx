@@ -1,12 +1,12 @@
-import { StyleSheet, View, ViewProps } from "react-native"
+import { View, ViewProps } from "react-native"
 import { globalStyles } from "../../constants/globalStyles"
 
-interface MainProps extends Pick<ViewProps, 'style' | 'children'> {}
+interface MainProps extends Pick<ViewProps, 'style' | 'children'> { }
 
 const Main = ({
   children,
   style
-}: MainProps)=>{
+}: MainProps) => {
   return (
     <View style={[globalStyles.contentWrapper, style]}>
       {children}

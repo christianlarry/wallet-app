@@ -13,26 +13,30 @@ export const AppNavigator = () => {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator 
+        <Stack.Navigator
           screenOptions={{
-              headerTintColor: COLORS.primary,
-              headerTitleStyle: { fontWeight: 'bold' }
+            headerTintColor: COLORS.primary,
+            headerTitleStyle: { fontWeight: 'bold' }
           }}
         >
-          <Stack.Screen 
-              name="Dashboard" 
-              component={DashboardScreen} 
-              options={{ headerShown: false }} 
+          <Stack.Screen
+            name="Dashboard"
+            component={DashboardScreen}
+            options={{
+              headerShown: false
+            }}
           />
-          <Stack.Screen 
-              name="AddTransaction" 
-              component={AddTransactionScreen} 
-              options={{ title: 'Tambah Transaksi' }} 
+          <Stack.Screen
+            name="AddTransaction"
+            component={AddTransactionScreen}
+            options={{
+              title: 'Tambah Transaksi'
+            }}
           />
-          <Stack.Screen 
-              name="AddAccount" 
-              component={AddAccountScreen} 
-              options={{ title: 'Tambah Akun Baru' }} 
+          <Stack.Screen
+            name="AddAccount"
+            component={AddAccountScreen}
+            options={{ title: 'Tambah Akun Baru' }}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { View, StyleSheet, Animated } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useStore } from '../store/useStore';
-import { COLORS, SPACING } from '../constants/themes';
-import { useNavigation } from '@react-navigation/native';
+import { SPACING } from '../constants/themes';
 import { globalStyles } from '../constants/globalStyles';
 import BalanceCard from '../components/organisms/cards/BalanceCard';
 import DashboardHeader from '../components/organisms/sections/dashboard/DashboardHeader';
@@ -12,27 +11,25 @@ import TransactionHistory from '../components/organisms/sections/dashboard/Trans
 
 export const DashboardScreen = () => {
   const { loadData } = useStore();
-  const navigation = useNavigation<any>();
-  
+
   const scrollY = useRef(new Animated.Value(0)).current;
-  
+
   // Kita ganti nama state agar lebih akurat: "Jarak Y posisi Balance Card"
-  const [stickyThreshold, setStickyThreshold] = useState(0); 
+  const [stickyThreshold, setStickyThreshold] = useState(0);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [loadData]);
 
   return (
     <SafeAreaView style={globalStyles.screenContainer} edges={['top', 'left', 'right']}>
       <Animated.ScrollView
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-          { useNativeDriver: false }
-        )}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
+          useNativeDriver: false,
+        })}
         scrollEventThrottle={16}
         stickyHeaderIndices={[1]} // BalanceCard is at index 1
-        contentContainerStyle={[globalStyles.scrollContainer,styles.scrollContent]}
+        contentContainerStyle={[globalStyles.scrollContainer, styles.scrollContent]}
         showsVerticalScrollIndicator={false}
       >
         {/* Index 0: Header */}
@@ -48,25 +45,21 @@ export const DashboardScreen = () => {
             sampai elemen ini dimulai. Ini otomatis menghitung padding parent,
             tinggi header di atasnya, dan gap diantaranya.
         */}
-        <View 
-            onLayout={(e) => {
-                setStickyThreshold(e.nativeEvent.layout.y);
-            }}
-            // Penting: ZIndex agar view ini tetap di atas saat sticky (kadang diperlukan di Android)
-            style={{ zIndex: 1 }} 
+        <View
+          onLayout={(e) => {
+            setStickyThreshold(e.nativeEvent.layout.y);
+          }}
+          // Penting: ZIndex agar view ini tetap di atas saat sticky (kadang diperlukan di Android)
+          style={{ zIndex: 1 }}
         >
-            <BalanceCard 
-                scrollY={scrollY} 
-                stickyThreshold={stickyThreshold} 
-            />
+          <BalanceCard scrollY={scrollY} stickyThreshold={stickyThreshold} />
         </View>
 
         {/* Index 2: Account List */}
-        <AccountList/>
+        <AccountList />
 
         {/* Index 3: Transaction History */}
-        <TransactionHistory/>
-
+        <TransactionHistory />
       </Animated.ScrollView>
     </SafeAreaView>
   );
@@ -76,6 +69,6 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingTop: -SPACING.sm,
     marginTop: SPACING.sm,
-    paddingBottom: SPACING.md
-  }
+    paddingBottom: SPACING.md,
+  },
 });
