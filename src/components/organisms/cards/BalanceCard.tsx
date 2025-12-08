@@ -8,7 +8,7 @@ import Icon from "../../atoms/Icon"
 import { Ionicons } from "@expo/vector-icons"
 import IconButton from "../../atoms/IconButton"
 import { Button } from "../../atoms/Button"
-import { useNavigation } from "@react-navigation/native"
+import { useRouter } from "expo-router"
 import { BlurView } from "expo-blur"
 
 interface BalanceCardProps {
@@ -22,10 +22,10 @@ const BalanceCard = ({
 }: BalanceCardProps) => {
 
   const { totalNetWorth, isBalanceVisible, toggleBalanceVisibility } = useStore()
-  const navigation = useNavigation<any>()
+  const router = useRouter()
 
   const handleAddTransactionBtnPress = () => {
-    navigation.navigate("AddTransaction")
+    router.push("/add-transaction")
   }
 
   const inputRange = [stickyThreshold, stickyThreshold + 50];

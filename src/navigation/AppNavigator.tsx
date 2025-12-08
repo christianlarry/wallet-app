@@ -36,7 +36,10 @@ export const AppNavigator = () => {
           <Stack.Screen
             name="AddAccount"
             component={AddAccountScreen}
-            options={{ title: 'Tambah Akun Baru' }}
+            options={{
+              title: 'Tambah Akun Baru',
+              headerShown: false
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

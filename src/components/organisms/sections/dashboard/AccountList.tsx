@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native"
 import Section from "../../../molecules/Section"
-import { useNavigation } from "@react-navigation/native"
+import { useRouter } from "expo-router"
 import { useStore } from "../../../../store/useStore"
 import { globalStyles } from "../../../../constants/globalStyles"
 import { SPACING } from "../../../../constants/themes"
@@ -11,11 +11,11 @@ import { FlashList } from "@shopify/flash-list"
 
 const AccountList = () => {
 
-  const navigation = useNavigation<any>()
+  const router = useRouter()
   const { accounts, isBalanceVisible } = useStore()
 
   const handleCreateNewAccount = () => {
-    navigation.navigate("AddAccount")
+    router.push("/add-account")
   }
 
   const handleAccountPress = (account: Account) => {

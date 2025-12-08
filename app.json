@@ -1,6 +1,8 @@
 {
   "expo": {
     "name": "wallet-app",
+    "scheme": "walletapp",
+    "jsEngine": "hermes",
     "slug": "wallet-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -27,7 +29,8 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-font"
+      "expo-font",
+      "expo-router"
     ]
   }
 }

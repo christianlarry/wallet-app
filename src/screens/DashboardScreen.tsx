@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useStore } from '../store/useStore';
-import { SPACING } from '../constants/themes';
-import { globalStyles } from '../constants/globalStyles';
-import BalanceCard from '../components/organisms/cards/BalanceCard';
-import DashboardHeader from '../components/organisms/sections/dashboard/DashboardHeader';
-import AccountList from '../components/organisms/sections/dashboard/AccountList';
-import TransactionHistory from '../components/organisms/sections/dashboard/TransactionHistory';
+import { useStore } from '@/store/useStore';
+import { SPACING } from '@/constants/themes';
+import { globalStyles } from '@/constants/globalStyles';
+import BalanceCard from '@/components/organisms/cards/BalanceCard';
+import DashboardHeader from '@/components/organisms/sections/dashboard/DashboardHeader';
+import AccountList from '@/components/organisms/sections/dashboard/AccountList';
+import TransactionHistory from '@/components/organisms/sections/dashboard/TransactionHistory';
 
 export const DashboardScreen = () => {
   const { loadData } = useStore();
