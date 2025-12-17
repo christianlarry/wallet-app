@@ -74,7 +74,7 @@ const BalanceCard = ({
         <BlurView
           intensity={Platform.OS === 'ios' ? 80 : 50}
           tint="systemChromeMaterialLight"
-          style={StyleSheet.absoluteFill} 
+          style={StyleSheet.absoluteFill}
           experimentalBlurMethod="dimezisBlurView"
         />
       </Animated.View>
